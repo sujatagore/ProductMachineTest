@@ -1,0 +1,75 @@
+
+
+<div class="row">
+    <div class="col-md-12 mb-5" *ngFor="let mobile of mobileArr">
+        <div class="card" 
+            [ngClass]="{
+                'notAvl' : !mobile.isAvailable
+            }">
+
+            <p class="noPrd d-flex justify-content-center align-items-center" *ngIf="!mobile.isAvailable">
+                <strong>The Product is not Available</strong>
+            </p>
+
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="imgcon">
+                            <img *ngIf="mobile.image ; else noMobilrImg"
+                            [src]="mobile.image" [alt]="mobile.name" [name]="mobile.name" class="img-fluid">
+    
+                            <ng-template #noMobilrImg>
+                                    <img src="https:/placehold.co/600X400" alt="" class="img-fluid">
+                            </ng-template>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h3 class="display-2">
+                            {{mobile.name}}
+                            <small class="p-2 text-white" 
+                                [ngClass]="{
+                                    'bg-success' : mobile.rating >= 4,
+                                    'bg-warning' : mobile.rating >= 3 && mobile.rating < 4,
+                                    'bg-danger' : mobile.rating < 3
+                                }">
+                                {{mobile.rating}}
+                            </small>
+                        </h3>
+                        <h5>
+                            {{mobile.brand}}
+                        </h5>
+                        <ol>
+                            <li *ngFor="let s of mobile.specifications">
+                                {{s}}
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="col-md-4 mt-5">
+                        <p class="mb-0">
+                            <strong>
+                               ₹.{{mobile.price}}
+                            </strong>
+                        </p>
+                        <span class="text-primary">
+                            {{mobile.brandoff}}% OFF
+                        </span>
+                        <p class="mb-0">
+                            Free Delivery
+                        </p>
+                        <div>
+                            <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fa_62673a.png" height="28" alt="">
+                        </div>
+                        <p class="mb-0 text-success">
+                            Save Extra with Combo Offers!!!!
+                        </p>
+                        <p class="text-danger">
+                            Only 2 Left....
+                        </p>
+                        <button type="button" class="btn btn-outline-warning">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+
+.imgcon{
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.display-2{
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.noPrd{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 28px;
+    height: 100%;
+    width: 100%;
+}
+
+.notAvl{
+    filter: blur(1px) grayscale(1);
+}
+
+.card{
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.6);
+}
